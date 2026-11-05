@@ -1,0 +1,29 @@
+<div class="align-center">
+<h2>
+    One Way Data Binding
+</h2>
+<p>1. Interpolation</p>
+<p>{{ name}} : {{stack}}</p>
+<p>2. Property Binding</p>
+<img style="height: 100x; width: 100px;" [src]="image" alt="my-profile">
+<p>2. Event Binding</p>
+<button (click)="onSubmit()">Submit</button>
+<div>
+    <select (change) = onChange()>
+    <option value="Country">Country</option>
+    <option value="Nigeria">Nigeria</option>
+    <option value="Ghana">Ghana</option>
+    <option value="Japan">Japan</option>
+</select>
+</div>
+<h2>
+    One Way Data Binding
+</h2>
+<p>NG Model</p>
+<div>
+    <input type="text" [(ngModel)]="random">{{random}}    
+</div>
+<div>
+     <input type="text" [(ngModel)]="stack">{{stack}}
+</div>
+</div>

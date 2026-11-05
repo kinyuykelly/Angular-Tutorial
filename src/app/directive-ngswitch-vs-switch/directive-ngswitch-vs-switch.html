@@ -1,0 +1,52 @@
+<!-- <div class="container my-5 d-flex text-center flex-column align-items-center">
+    <div>
+        <h1>Example of ngswitch vs switch</h1>
+    </div>
+    <div class="col-12">
+        <div class="btn btn-success m-1" (click)="set(1)">1st Grade</div>
+        <div class="btn btn-primary m-1" (click)="set(2)">2nd Grade</div>
+        <div class="btn btn-warning m-1" (click)="set(3)">3rd Grade</div>
+    </div>
+    <div [ngSwitch]="grade">
+        <div *ngSwitchCase="1">
+            Congratulations on your outstanding achievement - First Grade
+        </div>
+        <div *ngSwitchCase="2">
+            Congratulations on your outstanding achievement - Second Grade
+        </div>
+        <div *ngSwitchCase="3">
+            Congratulations on your outstanding achievement - Third Grade
+        </div>
+        <div *ngSwitchDefault>
+            No results found ...
+        </div>
+    </div>
+</div> -->
+<div class="container my-5 d-flex text-center flex-column align-items-center">
+    <div>
+        <h1>Example of ngswitch vs switch</h1>
+    </div>
+    <div class="col-12">
+        <div class="btn btn-success m-1" (click)="set(1)">1st Grade</div>
+        <div class="btn btn-primary m-1" (click)="set(2)">2nd Grade</div>
+        <div class="btn btn-warning m-1" (click)="set(3)">3rd Grade</div>
+    </div>
+    <div class="m-3">
+     @switch(grade){
+        @case(1){
+        <div>
+            Congratulations on your outstanding achievement - First Grade
+        </div>
+        }
+        @case(2){
+        Congratulations on your outstanding achievement - Second Grade
+        }
+        @case(3){
+        Congratulations on your outstanding achievement - Third Grade
+        }
+        @default{
+        No result found ...
+        }
+     }
+   </div>
+   </div>
