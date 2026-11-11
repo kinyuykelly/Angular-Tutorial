@@ -1,0 +1,45 @@
+<div class="container">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+        <pre>
+     Valid: {{userForm.valid}}
+    </pre>
+        <h2 class="text-center">User Information</h2>
+        <div class="form-group m-2">
+            <label>Name</label>
+            <input type="text" class="form-control" #fname="ngModel" required minlength="4" placeholder="enter name"
+                name="name" [(ngModel)]="userObject.name" />
+            @if(fname.dirty || fname.touched){
+            @if (fname.errors?.['required']) {
+            <small class="text-danger"> Name is required</small>
+            }
+            @if (fname.errors?.['minlength']) {
+            <small class="text-danger"> Minlength is 4</small>
+            }
+            }
+        </div>
+        <div class="form-group m-2">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="enter email address" email="" name="email"
+                [(ngModel)]="userObject.email" />
+        </div>
+
+        <div class="form-group m-2">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="enter password" name="password"
+                [(ngModel)]="userObject.password" />
+        </div>
+
+        <div class="form-check m-2">
+            <label>Check me out</label>
+            <input type="checkbox" class="form-check-input" name="isChecked" [(ngModel)]="userObject.isChecked" />
+
+        </div>
+        <button class="btn btn-success" [disabled]="userForm.invalid">Submit</button>
+        <!-- <button class="btn btn-warning" (click)="setValue(userForm)">Set Value</button> -->
+        <button class="btn btn-primary" (click)="patchValue(userForm)">Patch Value</button>
+        <!-- <button class="btn btn-secondary" (click)="resetValue(userForm)">Reset Value</button> -->
+
+
+    </form>
+</div>

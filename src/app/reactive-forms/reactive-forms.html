@@ -1,0 +1,66 @@
+<div class="container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm)">
+        <h2 class="text-center">Reactive Form</h2>
+        <div class="form-group m-2">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="enter name" formControlName="name"/>
+        </div>
+         @if(reactiveForm.controls['name'].dirty || reactiveForm.controls['name'].touched){
+            @if (reactiveForm.controls['name'].errors?.['required']) {
+            <small class="text-danger"> Name is required</small>
+            }
+            @if (reactiveForm.controls['name'].errors?.['minlength']) {
+            <small class="text-danger"> Minlength is 4</small>
+            }
+            }
+        <div class="form-group m-2">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="enter email address" email=""
+                formControlName="email" />
+        </div>
+
+        <div class="form-group m-2">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="enter password" formControlName="password" />
+        </div>
+
+        <div class="form-check m-2">
+            <label>Check me out</label>
+            <input type="checkbox" class="form-check-input" formControlName="isChecked" />
+
+        </div>
+
+        <div class="m-2" formGroupName="address">
+            <h5 class="m-2">Adress</h5>
+            <div class="form-group m-2">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="enter city" formControlName="city" />
+            </div>
+            <div class="form-group m-2">
+                <label>Street</label>
+                <input type="text" class="form-control" placeholder="enter street" formControlName="street" />
+            </div>
+            <div class="form-group m-2">
+                <label>Pincode</label>
+                <input type="text" class="form-control" placeholder="enter pincode" formControlName="pincode" />
+            </div>
+        </div>
+        <div class="form-group m-2" formArrayName="skills">
+            <button class="btn btn-primary" (click)="addSkill()">
+                Add Skill
+            </button>
+            <div *ngFor="let skill of skills.controls; let i = index">
+                <div [formGroupName]="i">
+                    {{i+1}} Skill name: <input type="text" formControlName="skill">
+                    <button (click)="deleteSkill(i)">Delete</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" [disabled]="!reactiveForm.valid" type="submit">Submit</button>
+        <button class="btn btn-warning" (click)="setValue(reactiveForm)">Set Value</button>
+        <button class="btn btn-primary" (click)="patchValue(reactiveForm)">Patch Value</button>
+        <button class="btn btn-secondary" (click)="resetValue(reactiveForm)">Reset Value</button>
+
+
+    </form>
+</div>

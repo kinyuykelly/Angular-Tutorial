@@ -5,6 +5,8 @@ import { AttributeDirective } from './attribute-directive/attribute-directive';
 import { DirectiveNgswitchVsSwitch } from './directive-ngswitch-vs-switch/directive-ngswitch-vs-switch';
 import { PageNotFound } from './page-not-found/page-not-found';
 import { BuiltInPipes } from './built-in-pipes/built-in-pipes';
+import { TemplateDrivenForms } from './template-driven-forms/template-driven-forms';
+import { ReactiveForms } from './reactive-forms/reactive-forms';
 
 export const routes: Routes = [
 
@@ -35,6 +37,15 @@ export const routes: Routes = [
   {
     path: 'built-in-pipes',
     component: BuiltInPipes
+  },
+  {
+
+    path: 'TDF',
+    component: TemplateDrivenForms
+  },
+  {
+    path: 'react',
+    component: ReactiveForms
   },
   //white card route
   {
